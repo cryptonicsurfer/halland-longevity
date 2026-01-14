@@ -112,9 +112,9 @@ export function ScienceSection() {
             </div>
             <h3 className="text-xl font-bold mb-3">Leap for Life</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              The region&apos;s innovation center where academia, healthcare, and business meet. From
-              strategic partnerships to the &quot;Health Data Factory,&quot; Leap for Life drives the
-              practical implementation of longevity science.
+              The region&apos;s innovation hub connecting academia, healthcare, and industry. Through
+              strategic partnerships and initiatives like the &quot;Health Data Factory,&quot; they accelerate
+              the translation of research into real-world healthcare solutions.
             </p>
           </div>
         </div>
