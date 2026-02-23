@@ -99,14 +99,14 @@ export function ChecklistSection() {
                   <div
                     className={`w-6 h-6 border-2 rounded-md flex items-center justify-center mr-4 transition-colors ${
                       checkedItems[item.id]
-                        ? 'bg-amber-500 border-amber-500'
+                        ? 'bg-cyan-500 border-cyan-500'
                         : 'border-white/50 group-hover:border-white/80'
                     }`}
                   >
                     {checkedItems[item.id] && <Check className="w-4 h-4 text-white" />}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-white group-hover:text-amber-200 drop-shadow">
+                    <h4 className="font-bold text-white group-hover:text-cyan-200 drop-shadow">
                       {item.title}
                     </h4>
                     <p className="text-sm text-white/70">{item.description}</p>
@@ -117,7 +117,7 @@ export function ChecklistSection() {
 
             {showCompletion && (
               <div className="mt-8 text-center animate-bounce">
-                <span className="inline-block px-4 py-2 bg-amber-500/90 text-white rounded-full font-bold text-sm shadow-lg">
+                <span className="inline-block px-4 py-2 bg-cyan-500/90 text-white rounded-full font-bold text-sm shadow-lg">
                   Daily Protocol Complete!
                 </span>
               </div>

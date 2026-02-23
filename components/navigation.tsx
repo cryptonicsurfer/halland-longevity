@@ -1,62 +1,86 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { href: '/#concept', label: 'The Nordic Blue Zone' },
+  { href: '/science', label: 'The Science' },
+  { href: '/#food', label: 'Food Culture' },
+  { href: '/culture', label: 'Culture & Mind' },
+  { href: '/#checklist', label: 'Daily Protocol' },
+];
 
 export function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-stone-100'
-          : 'bg-transparent'
-      }`}
-    >
+    <nav className="fixed w-full z-50 bg-white border-b border-stone-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-amber-800 rounded-full flex items-center justify-center text-white font-serif font-bold">
-              H
-            </div>
-            <span className="font-serif text-xl font-bold tracking-tight text-amber-900">
-              Halland Longevity
-            </span>
-          </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.jpeg"
+              alt="Longevity Halland"
+              width={180}
+              height={40}
+              className="h-16 w-auto"
+              unoptimized
+            />
+          </Link>
+
+          {/* Desktop */}
           <div className="hidden md:flex space-x-8 text-sm font-medium text-stone-600">
-            <Link href="#concept" className="hover:text-amber-800 transition-colors">
-              The Nordic Blue Zone
-            </Link>
-            <Link href="#science" className="hover:text-amber-800 transition-colors">
-              The Science
-            </Link>
-            <Link href="#food" className="hover:text-amber-800 transition-colors">
-              Food Culture
-            </Link>
-            <Link href="#culture" className="hover:text-amber-800 transition-colors">
-              Culture & Mind
-            </Link>
-            <Link href="#checklist" className="hover:text-amber-800 transition-colors">
-              Daily Protocol
-            </Link>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-cyan-700 transition-colors">
+                {link.label}
+              </Link>
+            ))}
             <Link
-              href="#visit"
-              className="px-5 py-2.5 bg-amber-800 text-white rounded-full hover:bg-amber-700 transition-all shadow-md"
+              href="/#visit"
+              className="px-5 py-2.5 bg-cyan-700 text-white rounded-full hover:bg-cyan-600 transition-all shadow-md"
+            >
+              Visit Halland
+            </Link>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden p-2 text-stone-600 hover:text-cyan-700 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden bg-white border-t border-stone-100 px-4 pb-6 pt-2">
+          <div className="flex flex-col space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="py-3 px-4 text-stone-600 hover:text-cyan-700 hover:bg-cyan-50 rounded-lg transition-colors font-medium"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/#visit"
+              onClick={() => setOpen(false)}
+              className="mt-2 py-3 px-4 bg-cyan-700 text-white rounded-full font-bold text-center hover:bg-cyan-600 transition-all shadow-md"
             >
               Visit Halland
             </Link>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

@@ -73,11 +73,11 @@ const localProducers = [
 
 export function FoodSection() {
   return (
-    <section id="food" className="py-24 bg-amber-50/50">
+    <section id="food" className="py-24 bg-cyan-50/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-amber-800 font-medium tracking-wide uppercase text-sm mb-3">
+          <p className="text-cyan-700 font-medium tracking-wide uppercase text-sm mb-3">
             Hallands Skafferi
           </p>
           <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
@@ -116,14 +116,14 @@ export function FoodSection() {
         <div className="space-y-4 mb-16">
           {/* Michelin Section */}
           <Accordion
-            title="Two Michelin Stars, Two Green Stars"
-            subtitle="Sweden's highest concentration per capita"
+            title="Ranks #1 for Michelin stars per capita"
+            subtitle="A culinary hotspot built on a foundation of exceptional local producers"
           >
             <div className="space-y-6 mb-8">
               {michelinRestaurants.map((restaurant, index) => (
-                <div key={index} className="border-l-2 border-amber-300 pl-6">
+                <div key={index} className="border-l-2 border-cyan-300 pl-6">
                   <h4 className="text-lg font-serif text-stone-900 mb-1">{restaurant.name}</h4>
-                  <p className="text-amber-700 text-sm mb-2 flex items-center gap-1">
+                  <p className="text-cyan-600 text-sm mb-2 flex items-center gap-1">
                     <MapPin className="w-3 h-3" /> {restaurant.location}
                   </p>
                   <p className="text-stone-600 leading-relaxed text-sm">{restaurant.description}</p>
@@ -132,18 +132,17 @@ export function FoodSection() {
             </div>
 
             {/* Simple comparison */}
-            <div className="bg-amber-50 rounded-lg p-5 border border-amber-100">
+            <div className="bg-cyan-50 rounded-lg p-5 border border-cyan-100">
               <p className="text-xs text-stone-500 mb-3 uppercase tracking-wide">Michelin restaurants per 100,000 inhabitants (2024)</p>
               <div className="space-y-1">
                 {countyComparison.map((row, index) => (
                   <div
                     key={index}
-                    className={`flex justify-between items-center py-1.5 text-sm ${
-                      row.highlight ? 'text-stone-900 font-medium' : 'text-stone-500'
-                    }`}
+                    className={`flex justify-between items-center py-1.5 text-sm ${row.highlight ? 'text-stone-900 font-medium' : 'text-stone-500'
+                      }`}
                   >
                     <span>{row.highlight && '→ '}{row.county}</span>
-                    <span className={row.highlight ? 'text-amber-700 font-semibold' : ''}>
+                    <span className={row.highlight ? 'text-cyan-600 font-semibold' : ''}>
                       {row.perCapita}
                     </span>
                   </div>
@@ -162,7 +161,7 @@ export function FoodSection() {
                 <div key={index}>
                   <div className="flex items-baseline gap-3 mb-2">
                     <h4 className="text-lg font-medium text-stone-900">{producer.name}</h4>
-                    <span className="text-amber-700 text-sm">sedan {producer.established}</span>
+                    <span className="text-cyan-600 text-sm">since {producer.established}</span>
                   </div>
                   <p className="text-stone-600 leading-relaxed text-sm mb-1">{producer.description}</p>
                   <p className="text-stone-400 text-xs">{producer.location}</p>
@@ -173,7 +172,7 @@ export function FoodSection() {
 
           {/* Local Producers */}
           <Accordion
-            title="Gårdsbutiker & Småskaliga Producenter"
+            title="Farm Shops & Small-Scale Producers"
             subtitle="From world-champion gin distillers to royal vegetable suppliers"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
@@ -188,22 +187,28 @@ export function FoodSection() {
         </div>
 
         {/* Simple stats inline */}
-        <div className="bg-white/60 rounded-xl p-8 border border-amber-100 mb-16">
-          <h3 className="text-lg font-serif text-stone-900 mb-4">Agricultural Strength</h3>
+        <div className="bg-white/60 rounded-xl p-8 border border-cyan-400 mb-16">
+          <h3 className="text-lg font-serif text-stone-900 mb-4">Short supply chain and close ties to the producers</h3>
           <p className="text-stone-600 leading-relaxed">
-            Halland ranks <strong>top 4</strong> in Swedish potato production, contributing to 80% of the
-            national harvest. The 2025 yield showed <strong>+38% growth</strong>—the highest in Sweden.
-            Over <strong>7% of the workforce</strong> is employed in the food sector, well above the national average.
+            In Halland, the connection between the land and the table is tangible. With a rich agricultural heritage
+            and a thriving food scene, the region offers a unique culinary experience that reflects its natural beauty
+            and traditions. </p>
+
+          <p className="text-stone-600 leading-relaxed mt-4">
+            Our conviction is that if you choose to apply your knowledge in longevity in Halland, on top of the foundation that has been nurtured since the 1500s, chances are - you will be able to create something truly special.
+
           </p>
         </div>
 
         {/* Blue Zone Connection */}
         <div className="text-center max-w-2xl mx-auto border-t border-stone-200 pt-12">
           <p className="text-stone-500 text-sm uppercase tracking-wide mb-4">Blue Zone Connection</p>
-          <p className="text-stone-600 leading-relaxed font-serif text-lg">
-            Blue Zone populations share a common thread: plant-rich, locally-sourced diets.
-            From 1569 family mills to modern organic vineyards, Halland&apos;s emphasis on quality
-            ingredients mirrors the dietary patterns found in the world&apos;s longest-lived communities.
+          <p className="text-stone-600 leading-relaxed font-serif text-lg italic font-bold">
+            Blue Zone populations share a common thread: plant-rich, locally-sourced diets seeking harmony with surroundings.
+          </p>
+          <p className="text-stone-600 leading-relaxed font-serif text-lg mt-4">
+            With mills dating back to 1569 and modern organic vineyards, Halland&apos;s emphasis on quality
+            ingredients mirrors the dietary patterns found in the world&apos;s longest-lived communities. We hope you accept our invitation.
           </p>
         </div>
       </div>

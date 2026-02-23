@@ -111,7 +111,7 @@ export function CultureSection() {
           <p className="text-lg text-stone-600 max-w-2xl mx-auto">
             A curated journey through Halland&apos;s mental gymnasiums.
             <br />
-            <span className="italic font-serif text-amber-800">
+            <span className="italic font-serif text-cyan-700">
               Select a destination to explore.
             </span>
           </p>
@@ -130,14 +130,14 @@ export function CultureSection() {
                   onClick={() => setActiveMuseum(museum)}
                   className={`w-full text-left group flex items-center gap-4 py-3 px-4 rounded-lg transition-all duration-300 hover:bg-stone-100 -ml-[19px] relative ${
                     activeMuseum.id === museum.id
-                      ? 'bg-amber-50 border-l-4 border-amber-700'
+                      ? 'bg-cyan-50 border-l-4 border-cyan-600'
                       : ''
                   }`}
                 >
                   <span
                     className={`flex-shrink-0 w-8 h-8 rounded-full font-bold flex items-center justify-center text-sm transition-colors ${
                       activeMuseum.id === museum.id
-                        ? 'bg-amber-700 text-white'
+                        ? 'bg-cyan-600 text-white'
                         : 'bg-stone-200 text-stone-600'
                     }`}
                   >
@@ -146,7 +146,7 @@ export function CultureSection() {
                   <span
                     className={`font-medium transition-colors ${
                       activeMuseum.id === museum.id
-                        ? 'text-amber-900 font-bold'
+                        ? 'text-cyan-800 font-bold'
                         : 'text-stone-600'
                     }`}
                   >
@@ -179,7 +179,7 @@ export function CultureSection() {
                       key={index}
                       className={`px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider ${
                         index === 0
-                          ? 'bg-amber-100 text-amber-800'
+                          ? 'bg-cyan-100 text-cyan-700'
                           : 'bg-stone-100 text-stone-600'
                       }`}
                     >
@@ -196,7 +196,7 @@ export function CultureSection() {
 
                 <div className="bg-stone-50 p-6 rounded-xl border border-stone-100 mb-8">
                   <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2">
-                    <activeMuseum.benefit.icon className="w-5 h-5 text-amber-700" />
+                    <activeMuseum.benefit.icon className="w-5 h-5 text-cyan-600" />
                     {activeMuseum.benefit.title}
                   </h4>
                   <p className="text-sm text-stone-600">{activeMuseum.benefit.text}</p>
@@ -206,7 +206,7 @@ export function CultureSection() {
                   href="https://www.visithalland.com/sv/din-guide-till-hallands-museer/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-amber-800 text-white rounded-full font-bold hover:bg-amber-700 transition shadow-md"
+                  className="inline-flex items-center px-6 py-3 bg-cyan-700 text-white rounded-full font-bold hover:bg-cyan-600 transition shadow-md"
                 >
                   Plan Visit <ArrowRight className="w-4 h-4 ml-2" />
                 </a>

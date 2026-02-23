@@ -14,17 +14,17 @@ export function Accordion({ title, subtitle, children, defaultOpen = false }: Ac
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-amber-200 rounded-xl overflow-hidden bg-white/40">
+    <div className="border border-cyan-200 rounded-xl overflow-hidden bg-white/40">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-amber-50/50 transition-colors"
+        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-cyan-50/50 transition-colors"
       >
         <div>
           <h3 className="text-xl font-serif text-stone-900">{title}</h3>
           {subtitle && <p className="text-stone-500 text-sm mt-1">{subtitle}</p>}
         </div>
         <ChevronDown
-          className={`w-5 h-5 text-amber-700 transition-transform duration-200 ${
+          className={`w-5 h-5 text-cyan-600 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`}
         />
