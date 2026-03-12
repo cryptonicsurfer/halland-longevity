@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Providers } from "@/components/providers";
+import { LangUpdater } from "@/components/lang-updater";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,25 +15,46 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hallandlongevity.se"),
   title: "Halland: The Nordic Blue Zone",
-  description: "Sweden's unofficial Blue Zone with the highest life expectancy and highest density of Michelin restaurants per capita. World-class healthcare innovation meets exceptional food culture, art, and coastal nature.",
-  keywords: ["Halland", "Blue Zone", "longevity", "Sweden", "Michelin", "ÄNG", "Knystaforsen", "healthcare", "CAISR", "food culture"],
+  description:
+    "Sweden's unofficial Blue Zone with the highest life expectancy and highest density of Michelin restaurants per capita. World-class healthcare innovation meets exceptional food culture, art, and coastal nature.",
+  keywords: [
+    "Halland",
+    "Blue Zone",
+    "longevity",
+    "Sweden",
+    "Michelin",
+    "ÄNG",
+    "Knystaforsen",
+    "healthcare",
+    "CAISR",
+    "food culture",
+  ],
   icons: {
     icon: "/browser-tabe-image.png",
     apple: "/browser-tabe-image.png",
   },
   openGraph: {
     title: "Halland: The Nordic Blue Zone",
-    description: "Sweden's unofficial Blue Zone. Highest life expectancy. Highest Michelin restaurant density per capita. Where science meets the sea.",
+    description:
+      "Sweden's unofficial Blue Zone. Highest life expectancy. Highest Michelin restaurant density per capita. Where science meets the sea.",
     type: "website",
     images: [
       {
-        url: "/logo.jpeg",
+        url: "/images/generated/og-halland.png",
         width: 1200,
         height: 630,
-        alt: "Longevity Halland",
+        alt: "Halland coastline panorama — The Nordic Blue Zone",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Halland: The Nordic Blue Zone",
+    description:
+      "Sweden's unofficial Blue Zone. Highest life expectancy. Where science meets the sea.",
+    images: ["/images/generated/og-halland.png"],
   },
 };
 
@@ -45,7 +68,16 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-stone-50 text-stone-800`}
       >
-        {children}
+        <Providers>
+          <LangUpdater />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-cyan-700 focus:text-white focus:rounded-lg focus:outline-none"
+          >
+            Skip to main content
+          </a>
+          {children}
+        </Providers>
       </body>
     </html>
   );

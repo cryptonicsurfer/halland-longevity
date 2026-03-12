@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { Accordion } from '@/components/ui/accordion';
+import { FadeInUp, StaggerContainer, StaggerItem } from '@/components/ui/motion';
+import { useI18n } from '@/lib/i18n/context';
 
 const michelinRestaurants = [
   {
@@ -72,145 +74,143 @@ const localProducers = [
 ];
 
 export function FoodSection() {
+  const { t } = useI18n();
+
   return (
-    <section id="food" className="py-24 bg-cyan-50/50">
+    <section id="food" className="py-24 bg-cyan-50/50" aria-label="Food culture">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-cyan-700 font-medium tracking-wide uppercase text-sm mb-3">
-            Hallands Skafferi
-          </p>
-          <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
-            Food Culture as Longevity
-          </h2>
-          <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
-            Where sea meets rolling farmland and deep forests. Halland has the highest density
-            of Michelin-starred restaurants per capita in Sweden—built on exceptional local
-            producers, some dating back to 1569.
-          </p>
-        </div>
+        <FadeInUp>
+          <div className="text-center mb-12">
+            <p className="text-cyan-700 font-medium tracking-wide uppercase text-sm mb-3">
+              {t.food.sectionLabel}
+            </p>
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">
+              {t.food.title}
+            </h2>
+            <p className="text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
+              {t.food.subtitle}
+            </p>
+          </div>
+        </FadeInUp>
 
-        {/* Hero Image */}
-        <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-16">
-          <Image
-            src="/images/food-halland.jpg"
-            alt="Local Halland cuisine and produce"
-            fill
-            className="object-cover"
-            unoptimized
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-        </div>
+        <FadeInUp>
+          <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-16">
+            <Image
+              src="/images/generated/food-halland.jpg"
+              alt="Nordic farm-to-table cuisine spread with local Halland seafood and produce"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          </div>
+        </FadeInUp>
 
-        {/* Conceptual intro about Halland's food philosophy */}
-        <div className="prose prose-stone max-w-none mb-12">
-          <p className="text-lg text-stone-600 leading-relaxed">
-            Halland&apos;s food culture embodies the essence of longevity: seasonal, local, and deeply connected to the land.
-            The region&apos;s unique position—between the Kattegat sea and the rolling farmlands of southwestern Sweden—creates
-            a terroir that has supported artisan food production for centuries. From multi-generational family farms to
-            innovative chefs foraging in ancient forests, the emphasis is always on quality over quantity.
-          </p>
-        </div>
+        <FadeInUp>
+          <div className="prose prose-stone max-w-none mb-12">
+            <p className="text-lg text-stone-600 leading-relaxed">
+              {t.food.intro}
+            </p>
+          </div>
+        </FadeInUp>
 
-        {/* Expandable sections for specific places */}
-        <div className="space-y-4 mb-16">
-          {/* Michelin Section */}
-          <Accordion
-            title="Ranks #1 for Michelin stars per capita"
-            subtitle="A culinary hotspot built on a foundation of exceptional local producers"
-          >
-            <div className="space-y-6 mb-8">
-              {michelinRestaurants.map((restaurant, index) => (
-                <div key={index} className="border-l-2 border-cyan-300 pl-6">
-                  <h4 className="text-lg font-serif text-stone-900 mb-1">{restaurant.name}</h4>
-                  <p className="text-cyan-600 text-sm mb-2 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" /> {restaurant.location}
-                  </p>
-                  <p className="text-stone-600 leading-relaxed text-sm">{restaurant.description}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Simple comparison */}
-            <div className="bg-cyan-50 rounded-lg p-5 border border-cyan-100">
-              <p className="text-xs text-stone-500 mb-3 uppercase tracking-wide">Michelin restaurants per 100,000 inhabitants (2024)</p>
-              <div className="space-y-1">
-                {countyComparison.map((row, index) => (
-                  <div
-                    key={index}
-                    className={`flex justify-between items-center py-1.5 text-sm ${row.highlight ? 'text-stone-900 font-medium' : 'text-stone-500'
-                      }`}
-                  >
-                    <span>{row.highlight && '→ '}{row.county}</span>
-                    <span className={row.highlight ? 'text-cyan-600 font-semibold' : ''}>
-                      {row.perCapita}
-                    </span>
+        <StaggerContainer className="space-y-4 mb-16">
+          <StaggerItem>
+            <Accordion
+              title={t.food.michelin}
+              subtitle={t.food.michelinSub}
+            >
+              <div className="space-y-6 mb-8">
+                {michelinRestaurants.map((restaurant, index) => (
+                  <div key={index} className="border-l-2 border-cyan-300 pl-6">
+                    <h4 className="text-lg font-serif text-stone-900 mb-1">{restaurant.name}</h4>
+                    <p className="text-cyan-600 text-sm mb-2 flex items-center gap-1">
+                      <MapPin className="w-3 h-3" aria-hidden="true" /> {restaurant.location}
+                    </p>
+                    <p className="text-stone-600 leading-relaxed text-sm">{restaurant.description}</p>
                   </div>
                 ))}
               </div>
-            </div>
-          </Accordion>
 
-          {/* Flagship Producers */}
-          <Accordion
-            title="Generations of Quality"
-            subtitle="Historic producers shaping the region"
-          >
-            <div className="space-y-8">
-              {flagshipProducers.map((producer, index) => (
-                <div key={index}>
-                  <div className="flex items-baseline gap-3 mb-2">
-                    <h4 className="text-lg font-medium text-stone-900">{producer.name}</h4>
-                    <span className="text-cyan-600 text-sm">since {producer.established}</span>
+              <div className="bg-cyan-50 rounded-lg p-5 border border-cyan-100">
+                <p className="text-xs text-stone-500 mb-3 uppercase tracking-wide">{t.food.michelinPer100k}</p>
+                <div className="space-y-1">
+                  {countyComparison.map((row, index) => (
+                    <div
+                      key={index}
+                      className={`flex justify-between items-center py-1.5 text-sm ${row.highlight ? 'text-stone-900 font-medium' : 'text-stone-500'
+                        }`}
+                    >
+                      <span>{row.highlight && '→ '}{row.county}</span>
+                      <span className={row.highlight ? 'text-cyan-600 font-semibold' : ''}>
+                        {row.perCapita}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Accordion>
+          </StaggerItem>
+
+          <StaggerItem>
+            <Accordion
+              title={t.food.generations}
+              subtitle={t.food.generationsSub}
+            >
+              <div className="space-y-8">
+                {flagshipProducers.map((producer, index) => (
+                  <div key={index}>
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <h4 className="text-lg font-medium text-stone-900">{producer.name}</h4>
+                      <span className="text-cyan-600 text-sm">{t.food.since} {producer.established}</span>
+                    </div>
+                    <p className="text-stone-600 leading-relaxed text-sm mb-1">{producer.description}</p>
+                    <p className="text-stone-400 text-xs">{producer.location}</p>
                   </div>
-                  <p className="text-stone-600 leading-relaxed text-sm mb-1">{producer.description}</p>
-                  <p className="text-stone-400 text-xs">{producer.location}</p>
-                </div>
-              ))}
-            </div>
-          </Accordion>
+                ))}
+              </div>
+            </Accordion>
+          </StaggerItem>
 
-          {/* Local Producers */}
-          <Accordion
-            title="Farm Shops & Small-Scale Producers"
-            subtitle="From world-champion gin distillers to royal vegetable suppliers"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
-              {localProducers.map((producer, index) => (
-                <div key={index} className="py-2 border-b border-stone-200">
-                  <p className="font-medium text-stone-900 text-sm">{producer.name}</p>
-                  <p className="text-stone-500 text-xs">{producer.detail}</p>
-                </div>
-              ))}
-            </div>
-          </Accordion>
-        </div>
+          <StaggerItem>
+            <Accordion
+              title={t.food.farmShops}
+              subtitle={t.food.farmShopsSub}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
+                {localProducers.map((producer, index) => (
+                  <div key={index} className="py-2 border-b border-stone-200">
+                    <p className="font-medium text-stone-900 text-sm">{producer.name}</p>
+                    <p className="text-stone-500 text-xs">{producer.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </Accordion>
+          </StaggerItem>
+        </StaggerContainer>
 
-        {/* Simple stats inline */}
-        <div className="bg-white/60 rounded-xl p-8 border border-cyan-400 mb-16">
-          <h3 className="text-lg font-serif text-stone-900 mb-4">Short supply chain and close ties to the producers</h3>
-          <p className="text-stone-600 leading-relaxed">
-            In Halland, the connection between the land and the table is tangible. With a rich agricultural heritage
-            and a thriving food scene, the region offers a unique culinary experience that reflects its natural beauty
-            and traditions. </p>
+        <FadeInUp>
+          <div className="bg-white/60 rounded-xl p-8 border border-cyan-400 mb-16">
+            <h3 className="text-lg font-serif text-stone-900 mb-4">{t.food.supplyChainTitle}</h3>
+            <p className="text-stone-600 leading-relaxed">
+              {t.food.supplyChainP1}
+            </p>
+            <p className="text-stone-600 leading-relaxed mt-4">
+              {t.food.supplyChainP2}
+            </p>
+          </div>
+        </FadeInUp>
 
-          <p className="text-stone-600 leading-relaxed mt-4">
-            Our conviction is that if you choose to apply your knowledge in longevity in Halland, on top of the foundation that has been nurtured since the 1500s, chances are - you will be able to create something truly special.
-
-          </p>
-        </div>
-
-        {/* Blue Zone Connection */}
-        <div className="text-center max-w-2xl mx-auto border-t border-stone-200 pt-12">
-          <p className="text-stone-500 text-sm uppercase tracking-wide mb-4">Blue Zone Connection</p>
-          <p className="text-stone-600 leading-relaxed font-serif text-lg italic font-bold">
-            Blue Zone populations share a common thread: plant-rich, locally-sourced diets seeking harmony with surroundings.
-          </p>
-          <p className="text-stone-600 leading-relaxed font-serif text-lg mt-4">
-            With mills dating back to 1569 and modern organic vineyards, Halland&apos;s emphasis on quality
-            ingredients mirrors the dietary patterns found in the world&apos;s longest-lived communities. We hope you accept our invitation.
-          </p>
-        </div>
+        <FadeInUp>
+          <div className="text-center max-w-2xl mx-auto border-t border-stone-200 pt-12">
+            <p className="text-stone-500 text-sm uppercase tracking-wide mb-4">{t.food.blueZoneConnection}</p>
+            <p className="text-stone-600 leading-relaxed font-serif text-lg italic font-bold">
+              {t.food.blueZoneP1}
+            </p>
+            <p className="text-stone-600 leading-relaxed font-serif text-lg mt-4">
+              {t.food.blueZoneP2}
+            </p>
+          </div>
+        </FadeInUp>
       </div>
     </section>
   );
