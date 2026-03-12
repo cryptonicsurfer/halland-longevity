@@ -33,7 +33,7 @@ export function ConceptSection() {
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-cyan-100 rounded-full z-0 opacity-50" aria-hidden="true" />
               <Image
-                src="/images/generated/nature-walk.jpg"
+                src="/images/nature-walk.jpg"
                 alt="Elderly couple walking through a Halland beech forest in warm afternoon light"
                 width={600}
                 height={500}

@@ -46,7 +46,7 @@ export function ChecklistSection() {
     <section id="checklist" className="relative py-24 overflow-hidden" aria-label="Daily protocol checklist">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/generated/kallbad-morning.jpg"
+          src="/images/protocol1.jpg"
           alt=""
           fill
           className="object-cover"

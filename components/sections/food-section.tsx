@@ -96,7 +96,7 @@ export function FoodSection() {
         <FadeInUp>
           <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-16">
             <Image
-              src="/images/generated/food-halland.jpg"
+              src="/images/food-halland.jpg"
               alt="Nordic farm-to-table cuisine spread with local Halland seafood and produce"
               fill
               className="object-cover"
