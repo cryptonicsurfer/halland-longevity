@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hallandlongevity.se"),
+  metadataBase: new URL("https://longevityhalland.se"),
   title: "Halland: The Nordic Blue Zone",
   description:
     "Sweden's unofficial Blue Zone with the highest life expectancy and highest density of Michelin restaurants per capita. World-class healthcare innovation meets exceptional food culture, art, and coastal nature.",
@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/generated/og-halland.png",
+        url: "/logo.jpeg",
         width: 1200,
         height: 630,
-        alt: "Halland coastline panorama — The Nordic Blue Zone",
+        alt: "Halland — The Nordic Blue Zone",
       },
     ],
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Halland: The Nordic Blue Zone",
     description:
       "Sweden's unofficial Blue Zone. Highest life expectancy. Where science meets the sea.",
-    images: ["/images/generated/og-halland.png"],
+    images: ["/logo.jpeg"],
   },
 };
 
