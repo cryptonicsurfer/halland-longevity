@@ -15,6 +15,7 @@ export function Navigation() {
     { href: '/science', label: t.nav.science },
     { href: '/#food', label: t.nav.food },
     { href: '/culture', label: t.nav.culture },
+    { href: '/#events', label: t.nav.events },
     { href: '/#checklist', label: t.nav.protocol },
   ];
 
