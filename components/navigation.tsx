@@ -8,7 +8,7 @@ import { useI18n } from '@/lib/i18n/context';
 
 export function Navigation() {
   const [open, setOpen] = useState(false);
-  const { t, locale, setLocale } = useI18n();
+  const { t } = useI18n();
 
   const navLinks = [
     { href: '/#concept', label: t.nav.blueZone },
@@ -50,13 +50,6 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => setLocale(locale === 'en' ? 'sv' : 'en')}
-              className="px-3 py-1.5 border border-stone-300 rounded-full text-xs font-bold text-stone-600 hover:border-cyan-600 hover:text-cyan-700 transition-colors uppercase"
-              aria-label={locale === 'en' ? 'Switch to Swedish' : 'Byt till engelska'}
-            >
-              {locale === 'en' ? 'SV' : 'EN'}
-            </button>
             <Link
               href="/#visit"
               className="px-5 py-2.5 bg-cyan-700 text-white rounded-full hover:bg-cyan-600 transition-all shadow-md"
@@ -91,12 +84,6 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => setLocale(locale === 'en' ? 'sv' : 'en')}
-              className="py-3 px-4 text-stone-600 hover:text-cyan-700 hover:bg-cyan-50 rounded-lg transition-colors font-medium text-left"
-            >
-              {locale === 'en' ? '🇸🇪 Svenska' : '🇬🇧 English'}
-            </button>
             <Link
               href="/#visit"
               onClick={() => setOpen(false)}
