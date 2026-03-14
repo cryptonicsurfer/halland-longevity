@@ -2,9 +2,9 @@ export const translations = {
   en: {
     nav: {
       blueZone: 'The Nordic Blue Zone',
-      science: 'The Science',
-      food: 'Food Culture',
-      culture: 'Culture & Mind',
+      science: 'Science',
+      food: 'Food',
+      culture: 'Culture',
       events: 'Events',
       protocol: 'Daily Protocol',
       visit: 'Plan Your Visit',
