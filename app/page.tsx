@@ -3,7 +3,6 @@ import { HeroSection } from '@/components/sections/hero-section';
 import { OverlookedSection } from '@/components/sections/overlooked-section';
 import { ConceptSection } from '@/components/sections/concept-section';
 import { FoodSection } from '@/components/sections/food-section';
-import { EventsSection } from '@/components/sections/events-section';
 import { ChecklistSection } from '@/components/sections/checklist-section';
 import { Footer } from '@/components/footer';
 import { StructuredData } from '@/components/structured-data';
@@ -42,7 +41,6 @@ export default function Home() {
         <OverlookedSection />
         <ConceptSection />
         <FoodSection />
-        <EventsSection />
         <ChecklistSection />
       </main>
       <Footer />
