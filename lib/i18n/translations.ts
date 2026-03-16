@@ -57,7 +57,7 @@ export const translations = {
         'With mills dating back to 1569 and modern organic vineyards, Halland\u2019s emphasis on quality ingredients mirrors the dietary patterns found in the world\u2019s longest-lived communities. We hope you accept our invitation.',
     },
     events: {
-      sectionLabel: 'Upcoming Events',
+      sectionLabel: 'Past Events',
       title: 'Join the Conversation',
       date: '13 March 2026',
       workshopTitle: 'How do we build the narrative that Halland is the Nordic Blue Zone?',

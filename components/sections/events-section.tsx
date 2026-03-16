@@ -35,7 +35,10 @@ export function EventsSection() {
         </FadeInUp>
 
         <FadeInUp>
-          <div className="bg-cyan-50/60 border border-cyan-200 rounded-2xl p-8 md:p-10">
+          <div className="bg-stone-50/60 border border-stone-200 rounded-2xl p-8 md:p-10 opacity-80">
+            <span className="inline-block px-3 py-1 text-xs font-medium uppercase tracking-wide bg-stone-200 text-stone-600 rounded-full mb-4">
+              Past event
+            </span>
             <div className="flex flex-wrap gap-4 text-sm text-stone-600 mb-6">
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4 text-cyan-600" aria-hidden="true" />
