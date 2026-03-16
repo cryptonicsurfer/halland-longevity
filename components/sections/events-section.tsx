@@ -48,9 +48,64 @@ export function EventsSection() {
           </div>
         </FadeInUp>
 
-        {/* Halland Tech Week — Longevity (5 Nov 2025) */}
+        {/* Blue Zone Workshop (13 Mar 2026) */}
         <FadeInUp>
           <div className="bg-stone-50/60 border border-stone-200 rounded-2xl p-8 md:p-10 mb-8">
+            <span className="inline-block px-3 py-1 text-xs font-medium uppercase tracking-wide bg-stone-200 text-stone-600 rounded-full mb-4">
+              Past event
+            </span>
+            <div className="flex flex-wrap gap-4 text-sm text-stone-600 mb-6">
+              <span className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4 text-stone-400" aria-hidden="true" />
+                {t.events.date}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-stone-400" aria-hidden="true" />
+                13.00–15.00
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Users className="w-4 h-4 text-stone-400" aria-hidden="true" />
+                Hannes Sjöblad
+              </span>
+            </div>
+
+            <h3 className="text-2xl font-serif text-stone-900 mb-4">
+              {t.events.workshopTitle}
+            </h3>
+
+            <div className="space-y-4 mb-8">
+              <p className="text-stone-600 leading-relaxed">
+                <span className="font-medium text-stone-800">{t.events.primaryGoalLabel}</span>{' '}
+                {t.events.primaryGoal}
+              </p>
+              <p className="text-stone-600 leading-relaxed">
+                <span className="font-medium text-stone-800">{t.events.secondaryGoalLabel}</span>{' '}
+                {t.events.secondaryGoal}
+              </p>
+            </div>
+
+            <h4 className="text-lg font-medium text-stone-900 mb-4">{t.events.programTitle}</h4>
+
+            <StaggerContainer className="space-y-2">
+              {workshopSchedule.map((slot) => (
+                <StaggerItem key={slot.key}>
+                  <div className="flex gap-4 py-2.5 border-b border-stone-100 last:border-0">
+                    <span className="text-stone-500 font-mono text-sm whitespace-nowrap pt-0.5 w-28 shrink-0">
+                      {slot.time}
+                    </span>
+                    <span className="text-stone-600 text-sm">
+                      {schedule[slot.key]}
+                    </span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </FadeInUp>
+
+        {/* Halland Tech Week — Longevity (5 Nov 2025) */}
+        <FadeInUp>
+          <div className="bg-stone-50/60 border border-stone-200 rounded-2xl p-8 md:p-10">
             <span className="inline-block px-3 py-1 text-xs font-medium uppercase tracking-wide bg-stone-200 text-stone-600 rounded-full mb-4">
               Past event
             </span>
@@ -114,61 +169,6 @@ export function EventsSection() {
                 </div>
               ))}
             </div>
-          </div>
-        </FadeInUp>
-
-        {/* Blue Zone Workshop (13 Mar 2026) */}
-        <FadeInUp>
-          <div className="bg-stone-50/60 border border-stone-200 rounded-2xl p-8 md:p-10">
-            <span className="inline-block px-3 py-1 text-xs font-medium uppercase tracking-wide bg-stone-200 text-stone-600 rounded-full mb-4">
-              Past event
-            </span>
-            <div className="flex flex-wrap gap-4 text-sm text-stone-600 mb-6">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-stone-400" aria-hidden="true" />
-                {t.events.date}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-stone-400" aria-hidden="true" />
-                13.00–15.00
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Users className="w-4 h-4 text-stone-400" aria-hidden="true" />
-                Hannes Sjöblad
-              </span>
-            </div>
-
-            <h3 className="text-2xl font-serif text-stone-900 mb-4">
-              {t.events.workshopTitle}
-            </h3>
-
-            <div className="space-y-4 mb-8">
-              <p className="text-stone-600 leading-relaxed">
-                <span className="font-medium text-stone-800">{t.events.primaryGoalLabel}</span>{' '}
-                {t.events.primaryGoal}
-              </p>
-              <p className="text-stone-600 leading-relaxed">
-                <span className="font-medium text-stone-800">{t.events.secondaryGoalLabel}</span>{' '}
-                {t.events.secondaryGoal}
-              </p>
-            </div>
-
-            <h4 className="text-lg font-medium text-stone-900 mb-4">{t.events.programTitle}</h4>
-
-            <StaggerContainer className="space-y-2">
-              {workshopSchedule.map((slot) => (
-                <StaggerItem key={slot.key}>
-                  <div className="flex gap-4 py-2.5 border-b border-stone-100 last:border-0">
-                    <span className="text-stone-500 font-mono text-sm whitespace-nowrap pt-0.5 w-28 shrink-0">
-                      {slot.time}
-                    </span>
-                    <span className="text-stone-600 text-sm">
-                      {schedule[slot.key]}
-                    </span>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
           </div>
         </FadeInUp>
       </div>
