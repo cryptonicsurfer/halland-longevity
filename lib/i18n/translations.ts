@@ -20,13 +20,13 @@ export const translations = {
     },
     overlooked: {
       label: 'The overlooked province',
-      text: 'The goose flew past. Linnaeus took the detour. No Volvo. No Spotify. Not even an IKEA. Just coastline, farmland, dense forests and the longest life expectancy in Sweden.',
+      text: 'The goose flew past. Linnaeus took the detour. No Volvo. No Spotify. Not even an IKEA. Just coastline, farmland, dense forests and the top life expectancy.',
       quote: 'Maybe they missed something\u2014yours to find?',
     },
     concept: {
       title: 'The Unofficial Blue Zone',
       p1: 'Blue Zones are regions of the world where people live much longer than average. While Okinawa and Sardinia are famous, <strong>Halland</strong> is quietly emerging as the Nordic contender.',
-      p2: 'With the <strong>top life expectancy in Sweden</strong> (approx. 85.7 years for women, 82.7 for men), Halland\u2019s secret isn\u2019t just one thing. It could be the synergy of advanced \u201CInformation Driven Care\u201D and a lifestyle deeply rooted in locally produced food, culture, cold baths, and community. In truth, we don\u2019t know for sure.',
+      p2: 'With the <strong>top life expectancy</strong> (approx. 85.7 years for women, 82.7 for men), Halland\u2019s secret isn\u2019t just one thing. It could be the synergy of advanced \u201CInformation Driven Care\u201D and a lifestyle deeply rooted in locally produced food, culture, cold baths, and community. In truth, we don\u2019t know for sure.',
       cta: 'But we invite you, and others like you, to unravel the mystery together with us. Maybe, you would like to build your longevity journey from one of the best and most unexplored starting fields out there.',
       quote: '\u201CThe art of longevity is keeping the mind as active as the body.\u201D',
     },
